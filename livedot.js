@@ -86,6 +86,10 @@ LiveDOT.prototype.onChange = function(diff)
 	var svg = d3.select(this.svgElement);
 	var renderer = new dagre.Renderer();
 
+	// This is a cool feature but it eats the wrong scroll events and can get
+	// shitty if you're trying to scroll around in the editor.
+	renderer.zoom(false);
+
 	// Transition whats in the renderer
 	renderer.transition(transition);
 
