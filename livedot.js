@@ -15,16 +15,6 @@ var dot = require('dot-lib');
 var dagre = require('dagre-d3');
 
 
-/**
- * Reusable transition function
- * @param  {Object} selection a D3 DOM selection
- */
-function transition(selection)
-{
-	return selection.transition().duration(500);
-}
-
-
 
 /**
  * A constructor that manages the view and the editor
@@ -57,6 +47,16 @@ LiveDOT.prototype.init = function(editorElement, viewElement)
 
 	return this;
 };
+
+
+/**
+ * Reusable transition function used by the onChange function
+ * @param  {Object} selection a D3 DOM selection
+ */
+function transition(selection)
+{
+	return selection.transition().duration(500);
+}
 
 
 /**
