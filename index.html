@@ -3,12 +3,17 @@
 <head>
 
 <meta charset="utf-8">
-<title>Live DOT</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="A Live DOT graph editor and renderer.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<title>Live DOT</title>
+
+<!-- Currently Dagre-d3 doesn't play well with amd-loaded d3 -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
+<script data-main="main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
 
 <style>
 	body, html { height: 100%; margin: 0; }
@@ -34,28 +39,25 @@
 
 <style>
 	svg {
-	    overflow: hidden;
+		overflow: hidden;
 	}
 
 	.node rect {
-	    stroke: #333;
-	    stroke-width: 1.5px;
-	    fill: #fff;
+		stroke: #333;
+		stroke-width: 1.5px;
+		fill: #fff;
 	}
 
 	.edgeLabel rect {
-	    fill: #fff;
+		fill: #fff;
 	}
 
 	.edgePath {
-	    stroke: #333;
-	    stroke-width: 1.5px;
-	    fill: none;
+		stroke: #333;
+		stroke-width: 1.5px;
+		fill: none;
 	}
 </style>
-
-<script src="http://d3js.org/d3.v3.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
 
 </head>
 <body>
@@ -63,19 +65,6 @@
 <a href="https://github.com/ixtli/live-dot"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 <div id="editor"></div>
 <div id="view"><svg width="500" height="500"><g transform="translate(20,20)"/></svg></div>
-<script>
-	require(['config'], function(config)
-	{
-		require.config(config);
-		require(['main'], function(LiveDOT)
-		{
-			var v = new LiveDOT();
-			var editor = document.getElementById('editor');
-			var view = document.getElementById('view');
-			v.init(editor, view);
-		});
-	});
-</script>
 
 </body>
 </html>
