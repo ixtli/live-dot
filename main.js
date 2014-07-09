@@ -5,7 +5,7 @@ define(function(require)
 
 
 var $ = require('jquery');
-var ace = require('ace/ace');
+var ace = require('ace');
 var dot = require('dot-lib');
 var d3 = window.d3;
 var dagre = require('dagre-d3');
